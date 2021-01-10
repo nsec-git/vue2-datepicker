@@ -21,6 +21,7 @@
     "build:css3": "postcss index.css --use autoprefixer -o index.css --no-map",
     "build:css4": "cp -R src/style scss",
     "build": "npm run test && npm run clean && npm run build:index && npm run build:css && npm run build:locale",
+    "build2": "npm run clean && npm run build:index && npm run build:css2 && npm run build:css3 && npm run build:css4 && npm run build:locale",
     "clean": "rimraf scss locale index.*",
     "lint": "eslint src/**/*.{js,vue}",
     "deploy:build": "cross-env NODE_ENV=production parcel build ./example/index.html --public-url ./ --out-dir _site --no-source-maps --no-minify",

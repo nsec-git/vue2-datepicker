@@ -1291,7 +1291,7 @@
    * @param {string} name lang
    */
 
-  function getLocale$1(name) {
+  function getLocale(name) {
     return locale$1(name, null, true);
   }
 
@@ -1902,7 +1902,7 @@
     inject: {
       getLocale: {
         default: function _default() {
-          return getLocale$1;
+          return getLocale;
         },
       },
       getWeek: {
@@ -2282,7 +2282,7 @@
     inject: {
       getLocale: {
         default: function _default() {
-          return getLocale$1;
+          return getLocale;
         },
       },
       prefixClass: {
@@ -3728,7 +3728,7 @@
     inject: {
       getLocale: {
         default: function _default() {
-          return getLocale$1;
+          return getLocale;
         },
       },
       prefixClass: {
@@ -3889,7 +3889,7 @@
     inject: {
       getLocale: {
         default: function _default() {
-          return getLocale$1;
+          return getLocale;
         },
       },
       prefixClass: {
@@ -4690,10 +4690,10 @@
       },
       locale: function locale() {
         if (isObject(this.lang)) {
-          return mergeDeep(getLocale$1(), this.lang);
+          return mergeDeep(getLocale(), this.lang);
         }
 
-        return getLocale$1(this.lang);
+        return getLocale(this.lang);
       },
       validMultipleType: function validMultipleType() {
         var types = ['date', 'month', 'year'];
