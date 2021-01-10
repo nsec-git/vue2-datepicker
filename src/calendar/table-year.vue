@@ -31,6 +31,7 @@
 import IconButton from './icon-button';
 import { chunk } from '../util/base';
 import { createDate } from '../util/date';
+import { getLocale } from '../locale';
 
 export default {
   name: 'TableYear',
