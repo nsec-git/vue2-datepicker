@@ -101,7 +101,7 @@ export default {
       }
       const year = target.getAttribute('data-year');
       if (year) {
-        this.$emit('select', parseInt(year + (locale.name === 'th' ? 543 : 0), 10));
+        this.$emit('select', parseInt(year - (locale.name === 'th' ? 543 : 0), 10));
       }
     },
   },
