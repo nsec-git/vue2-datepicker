@@ -105,8 +105,12 @@ export default {
       return this.getLocale().formatLocale.firstDayOfWeek || 0;
     },
     yearMonth() {
+      const locale = this.getLocale();
       const { yearFormat, monthBeforeYear, monthFormat = 'MMM' } = this.getLocale();
-      const yearLabel = {
+      const yearLabel = locale.name === 'th' ? {
+        panel: 'year',
+        label: this.calendar.getFullYear() + 543,
+      } : {
         panel: 'year',
         label: this.formatDate(this.calendar, yearFormat),
       };

@@ -60,7 +60,8 @@ export default {
   },
   computed: {
     calendarYear() {
-      return this.calendar.getFullYear();
+      const locale = this.getLocale();
+      return this.calendar.getFullYear() + (locale.name === 'th' ? 543 : 0);
     },
     months() {
       const locale = this.getLocale();

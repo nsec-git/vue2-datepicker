@@ -36,6 +36,9 @@ export default {
   name: 'TableYear',
   components: { IconButton },
   inject: {
+    getLocale: {
+      default: () => getLocale,
+    },
     prefixClass: {
       default: 'mx',
     },
@@ -71,10 +74,11 @@ export default {
   },
   methods: {
     getYears(calendar) {
+      const locale = this.getLocale();
       const firstYear = Math.floor(calendar.getFullYear() / 10) * 10;
       const years = [];
       for (let i = 0; i < 10; i++) {
-        years.push(firstYear + i);
+        years.push(firstYear + i + (locale.name === 'th' ? 543 : 0));
       }
       return chunk(years, 2);
     },
@@ -90,13 +94,14 @@ export default {
       this.$emit('changecalendar', this.getNextCalendar(10), 'next-decade');
     },
     handleClick(evt) {
+      const locale = this.getLocale();
       let { target } = evt;
       if (target.tagName.toUpperCase() === 'DIV') {
         target = target.parentNode;
       }
       const year = target.getAttribute('data-year');
       if (year) {
-        this.$emit('select', parseInt(year, 10));
+        this.$emit('select', parseInt(year + (locale.name === 'th' ? 543 : 0), 10));
       }
     },
   },
